@@ -40,7 +40,7 @@ py -m pip install openpyxl requests python-dotenv
 Crea un archivo **`.env`** en la carpeta del proyecto:
 
 ```
-FORTI_HOST=192.168.1.99
+FORTI_HOST=ip_fortinet
 FORTI_KEY=tu_token_de_api
 FORTI_VDOM=root
 

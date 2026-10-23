@@ -1,0 +1,48 @@
+{
+    "_ayuda": "Acciones: permitir | advertir | bloquear ('bloquear' deja la fila en REVISAR). Un servicio entra en una categoría por su nombre o por cualquiera de sus puertos (formato protocolo/puerto).",
+
+    "por_defecto": {"lan": "permitir", "hacia_internet": "advertir", "desde_internet": "advertir"},
+
+    "categorias": {
+        "Transferencia de archivos": {
+            "servicios": ["FTP", "FTP_GET", "FTP_PUT", "TFTP", "SMB", "SAMBA", "NFS", "AFS3"],
+            "puertos": ["tcp/20", "tcp/21", "udp/69", "tcp/139", "tcp/445", "tcp/2049", "udp/2049"],
+            "lan": "permitir", "hacia_internet": "bloquear", "desde_internet": "bloquear"
+        },
+        "Administración remota": {
+            "servicios": ["RDP", "VNC", "TELNET", "PC-Anywhere", "X-WINDOWS"],
+            "puertos": ["tcp/23", "tcp/3389", "tcp/5900", "tcp/5985", "tcp/5986"],
+            "lan": "permitir", "hacia_internet": "bloquear", "desde_internet": "bloquear"
+        },
+        "Bases de datos": {
+            "servicios": ["MS-SQL", "MYSQL"],
+            "puertos": ["tcp/1433", "tcp/1434", "tcp/3306"],
+            "lan": "permitir", "hacia_internet": "bloquear", "desde_internet": "bloquear"
+        },
+        "Windows interno": {
+            "servicios": ["DCE-RPC", "KERBEROS", "LDAP", "LDAP_UDP", "Windows AD", "WINS"],
+            "puertos": ["tcp/88", "udp/88", "tcp/135", "udp/135", "tcp/389", "udp/389", "tcp/464", "udp/464", "tcp/1512", "udp/1512"],
+            "lan": "permitir", "hacia_internet": "bloquear", "desde_internet": "bloquear"
+        },
+        "Legado inseguro": {
+            "servicios": ["RSH", "RLOGIN", "REXEC", "TELNET"],
+            "puertos": ["tcp/23", "tcp/512", "tcp/513", "tcp/514"],
+            "lan": "advertir", "hacia_internet": "bloquear", "desde_internet": "bloquear"
+        },
+        "Muy amplios": {
+            "servicios": ["ALL", "ALL_TCP", "ALL_UDP"],
+            "puertos": [],
+            "lan": "advertir", "hacia_internet": "bloquear", "desde_internet": "bloquear"
+        },
+        "SSH": {
+            "servicios": ["SSH"],
+            "puertos": ["tcp/22"],
+            "lan": "permitir", "hacia_internet": "advertir", "desde_internet": "bloquear"
+        },
+        "Web / correo / DNS": {
+            "servicios": ["HTTP", "HTTPS", "DNS", "SMTP", "SMTPS", "NTP"],
+            "puertos": ["tcp/25", "tcp/53", "udp/53", "tcp/80", "udp/123", "tcp/443", "tcp/465"],
+            "lan": "permitir", "hacia_internet": "permitir", "desde_internet": "advertir"
+        }
+    }
+}
